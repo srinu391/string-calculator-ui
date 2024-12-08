@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import stringCalculator from './stringCalculator';
+
 import './App.css';
 
 function App() {
@@ -6,7 +8,12 @@ function App() {
   const [result, setResult] = useState("");
 
   const handleCalculate = () => {
-    console.log('handle function')
+    try {
+      const calculationResult = stringCalculator(input);
+      setResult(`Result: ${calculationResult}`);
+    } catch (error) {
+      setResult(`Error: ${error.message}`);
+    }
   };
 
   return (
