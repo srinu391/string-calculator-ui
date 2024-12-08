@@ -24,5 +24,9 @@ describe('String Calculator', () => {
   test('supports a custom delimiter defined at the start of the string', () => {
     expect(stringCalculator("//;\n1;2")).toBe(3);
   });
+  
+  test('throws an error for negative numbers', () => {
+    expect(() => stringCalculator("1,-2,3")).toThrow("Negatives not allowed: -2");
+  });
 
 });
